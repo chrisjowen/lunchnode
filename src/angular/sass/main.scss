@@ -1,0 +1,48 @@
+@import url(http://fonts.googleapis.com/css?family=Fjalla+One|Average);
+
+
+.hl-primary {
+  background: #2398C9;
+  h1,h2,h3,h4, p,label,input, i { color:white;}
+}
+
+.hl-secondary {
+  background: lightslategrey;
+  h1,h2,h3,h4, p,label,input, i{ color:white;}
+}
+
+.icon-wrapper{
+  padding:9px;
+  font-size:50px;
+}
+
+.home-section{
+  min-height: 200px;
+}
+
+.btn-fb {
+  background: #3B5998;
+  color: #D3D8E8 !important;
+}
+
+.angular-google-map-container { height: 500px; }
+
+body{
+    font-family: 'Average', serif; color:gray;
+    h1,h2,h3,h4 { font-family: 'Fjalla One', sans-serif; color:gray;}
+    p,label,input { font-family: 'Average', serif; color:gray;}
+    .panel{
+         background: transparent;
+    }
+    .panel-black {
+          background:black;
+      }
+    .panel-white {
+      background:white;
+    }
+
+    .active {
+      h1,h2,h3,h4, p,label,input { color:white;}
+    }
+    
+}

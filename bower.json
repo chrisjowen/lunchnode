@@ -1,0 +1,28 @@
+{
+  "name": "lunchy",
+  "version": "0.0.0",
+  "authors": [
+    "Chris Owen <chris.j.owen@hotmail.co.uk>"
+  ],
+  "description": "Lunchy bower foo",
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "public/bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "underscore": "~1.6.0",
+    "angular": "~1.2.16",
+    "angular-route": "~1.2.16",
+    "restangular": "~1.4.0",
+    "angular-google-maps": "~1.1.0",
+    "angular-facebook": "~0.2.2",
+    "angular-ui": "~0.4.0",
+    "socket.io": "~1.0.4",
+    "socket.io-client": "~1.0.4"
+  }
+}

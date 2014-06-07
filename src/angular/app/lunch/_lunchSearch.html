@@ -1,0 +1,36 @@
+<div>
+    <div class="row">
+        <div class="col-md-8">
+            <div class="list-group">
+                <a class="list-group-item" ng-class="{'active' : result.selected}"  data-ng-repeat="result in model.results" ng-click="selectVenue(result)">
+                    <h4>{{result.name}} </h4>
+                    <p>{{result.location.address}},{{result.location.postalCode}}</p>
+                    <p>
+                        <span class="badge"><i class="glyphicon glyphicon-thumbs-up"></i> {{result.likes}} likes</span>
+                        <span class="badge"><i class="glyphicon glyphicon glyphicon-bullhorn"></i> {{result.tips}} likes</span>
+                    </p>
+                </a>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <h1>Categories</h1>
+            <div data-ng-repeat="category in model.categories" >
+                <ng-include src="'category.html'"></ng-include>
+            </div>
+        </div>
+    </div>
+    <script type="text/ng-template" id="category.html">
+        <div>
+            <ul class="list-unstyled">
+                <li>
+                    <img  src="{{category.icon.prefix}}bg_32{{category.icon.suffix}}" alt=""/>
+                    <a ng-click="events.search()">{{category.name}}</a>
+                    <ul ng-show="category">
+                        <li data-ng-repeat="category in category.categories"><ng-include src="'category.html'"></ng-include></li>
+                    </ul>
+
+                </li>
+            </ul>
+        </div>
+    </script>
+</div>

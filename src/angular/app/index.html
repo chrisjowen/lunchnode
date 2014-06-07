@@ -1,0 +1,24 @@
+<html>
+    <head>
+        <link rel="stylesheet" type="text/css" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+        <link rel="stylesheet" type="text/css" href="css/main.css">
+        <link href='//fonts.googleapis.com/css?family=Fjalla+One|Average' rel='stylesheet' type='text/css'>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+    </head>
+    <body ng-app="lunchy">
+        <div ng-class="{true:'container-fluid', false:'container'}[fluid]" ng-view></div>
+        <script src='//maps.googleapis.com/maps/api/js?sensor=false'></script>
+        <!-- bower components -->
+        <script type="text/javascript" src="/bower_components/angular/angular.js"></script>
+        <script type="text/javascript" src="/bower_components/angular-route/angular-route.js"></script>
+        <!--<script type="text/javascript" src="/bower_components/angular-ui/angular-ui.js"></script>-->
+        <script type="text/javascript" src="/bower_components/underscore/underscore.js"></script>
+        <script type="text/javascript" src="/bower_components/restangular/dist/restangular.js"></script>
+        <script type="text/javascript" src="/bower_components/angular-google-maps/dist/angular-google-maps.js"></script>
+        <script type="text/javascript" src="/bower_components/angular-facebook/lib/angular-facebook.js"></script>
+        <script type="text/javascript" src="/bower_components/socket.io-client/socket.io.js"></script>
+
+        <!-- angular -->
+        <script type="text/javascript" src="/javascript/lunchfoo.js"></script>
+    </body>
+</html>

@@ -1,0 +1,13 @@
+<div>
+    <input type="text" ng-model="model.lunch.title" />
+    <input type="button" ng-click="events.createNewLunch()"/>
+</div>
+<ul>
+    <li data-ng-repeat="lunch in lunches">
+        <a href="/#/lunch/{{lunch._id}}">{{lunch.title}}</a>
+    </li>
+</ul>
+
+
+
+

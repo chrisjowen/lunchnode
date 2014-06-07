@@ -1,0 +1,37 @@
+
+<div ng-show="state=='searching'">
+    <lunch-search state="state" select="events.selectVenue({venue:venue})" ></lunch-search>
+</div>
+
+<a ng-click="state='searching'">Search</a>
+
+<div  ng-show="state=='viewing'" >
+    <h1>{{model.title}}</h1>
+
+    <h2>Comments</h2>
+    <ul>
+        <li data-ng-repeat="comment in model.comments">
+           {{comment._id}} : {{comment.by}} : {{comment.body}} : {{comment.at}}
+        </li>
+    </ul>
+    <div>
+        <input type="text" ng-model="model.comment.body"/>
+        <input type="button" ng-click="events.addComment()" value="Add comment" />
+    </div>
+
+    <h2>Suggestions</h2>
+
+    <ul>
+        <li data-ng-repeat="suggestion in model.suggestions">
+            {{suggestion._id}} : {{suggestion.by}} : {{suggestion.identifier}} : {{suggestion.at}}
+        </li>
+    </ul>
+
+
+    <input type="button" ng-click="events.addSuggestion()" value="Add suggestion" />
+
+</div>
+
+
+
+
