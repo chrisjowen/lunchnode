@@ -1,9 +1,17 @@
+String::toCamelCase = ->
+  @replace /(\-[a-z])/g, ($1) ->
+    $1.toUpperCase().replace "-", ""
+
+String::toSnakeCase = ->
+  @replace /([A-Z])/g, ($1) ->
+    "_" + $1.toLowerCase()
+
 class @Angular
   @directive: (app, options) ->
     name = @getName().replace('Controller', '')
     name = "#{name[0].toLowerCase()}#{name.substring(1)}"
     options.controller = @
-    options.templateUrl = "#{options.templateFolder||''}_#{name.toLowerCase()}.html"
+    options.templateUrl = "#{options.templateFolder||''}#{name.toSnakeCase()}_directive.html"
     app.directive name, () -> options
 
   @route: (app, route) ->
@@ -25,7 +33,15 @@ class @Angular
     app.factory name, SetArgList(wrapper, @.$inject)
 
   @inject: (args...) ->
-    @$inject = args
+    @$inject = [] if not @$inject?
+    for i of args
+      @$inject.push(args[i])
+
+
+  @secure: () ->
+    @$secure = true
+    @$inject.push('$location')
+    @$inject.push('Auth')
 
   @getName: (name) ->
     @name || @toString().match(/function\s*(.*?)\(/)?[1]
@@ -43,6 +59,12 @@ class @Angular
 
     if @events!=undefined
       @$scope.events = @events()
+
+    if(@constructor.$secure and !@Auth.isAuthenticated())
+      @Auth.checkServerSession().catch(() => @$location.path("/"))
+
+
+
 
     @initialize?()
 

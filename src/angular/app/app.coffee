@@ -2,7 +2,8 @@ app = angular.module('lunchy', [
     'ngRoute',
     'restangular',
     'google-maps',
-    'facebook'
+    'facebook',
+    'ui.gravatar'
     ])
     .config ($routeProvider, FacebookProvider, RestangularProvider) ->
       $routeProvider.route = (url, template, controller) -> @.when url, {templateUrl : template, controller: controller}

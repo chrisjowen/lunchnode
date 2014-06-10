@@ -2,13 +2,15 @@ Lunch = require '../models/lunch'
 Controller = require '../lib/controller'
 
 class LunchController extends Controller
-  constructor : ->
-#    @before  @getUser
+  @secure()
+
+  initialize : ->
+    @before('invited', @setLunch)
 
   routes:
     index: (req, res) ->
-      Lunch.find {}, (err, lunchs) ->
-        res.send lunchs
+      Lunch.find {}, (err, lunch) ->
+        res.send lunch
 
     create: (req, res) ->
       lunch = new Lunch req.body
@@ -36,13 +38,14 @@ class LunchController extends Controller
           res.send err
           res.statusCode = 500
 
-    delete: (req, res) ->
-      Lunch.findByIdAndRemove req.params.id, (err) ->
+    invited: (req, res) ->
+      req.lunch.getInvitedUsers((err, users) =>
         if not err
-          res.send {}
+          res.send users
         else
           res.send err
           res.statusCode = 500
+      )
 
 
 

@@ -1,0 +1,25 @@
+<div>
+    <div class="body">
+        <div class="container-fluid">
+            <div class=" comment col-md-12" data-ng-repeat="comment in comments">
+                <div class="container-fluid">
+                    <div class="col-md-2"><img class="img-thumbnail" gravatar-src="'chris.j.owen@hotmail.co.uk'" gravatar-size="100">
+                    </div>
+                    <div class="col-md-10">
+                        <p class="usr">{{comment.user.name}} <span class="badge">Chris Owen</span></p>
+                        <p class="bdy">{{comment.body}}</p>
+                        <p class="time pull-right">{{comment.at}}</p>
+                    </div>
+                 </div>
+            </div>
+        </div>
+    </div>
+    <div class="bottom">
+        <div class="container-fluid">
+        <div class="col-md-12">
+            <input type="text" class="col-md-9" ng-model="model.comment.body"/>
+            <input type="button" class="btn btn-sm btn-default col-md-2" ng-click="events.addComment()" value="Add comment" />
+        </div>
+        </div>
+    </div>
+</div>

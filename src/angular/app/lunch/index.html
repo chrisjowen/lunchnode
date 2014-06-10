@@ -1,36 +1,109 @@
-
-<div ng-show="state=='searching'">
-    <lunch-search state="state" select="events.selectVenue({venue:venue})" ></lunch-search>
+<div class="header">
+    <div id="header" class="navbar navbar-default navbar-fixed-top">
+        <div class="navbar-header">
+            <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target=".navbar-collapse">
+                <i class="icon-reorder"></i>
+            </button>
+            <a class="navbar-brand" href="#">
+                Brand
+            </a>
+        </div>
+        <nav class="collapse navbar-collapse">
+            <ul class="nav navbar-nav">
+                <li>
+                    <a href="#">Navbar Item 1</a>
+                </li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Navbar Item 2<b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="#">Navbar Item2 - Sub Item 1</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#">Navbar Item 3</a>
+                </li>
+            </ul>
+            <ul class="nav navbar-nav pull-right">
+                <li class="dropdown">
+                    <a href="#" id="nbAcctDD" class="dropdown-toggle" data-toggle="dropdown"><i class="icon-user"></i>Username<i class="icon-sort-down"></i></a>
+                    <ul class="dropdown-menu pull-right">
+                        <li><a href="#">Log Out</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </nav>
+    </div>
 </div>
 
-<a ng-click="state='searching'">Search</a>
 
-<div  ng-show="state=='viewing'" >
-    <h1>{{model.title}}</h1>
 
-    <h2>Comments</h2>
-    <ul>
-        <li data-ng-repeat="comment in model.comments">
-           {{comment._id}} : {{comment.by}} : {{comment.body}} : {{comment.at}}
-        </li>
-    </ul>
-    <div>
-        <input type="text" ng-model="model.comment.body"/>
-        <input type="button" ng-click="events.addComment()" value="Add comment" />
+<div class="wrapper">
+
+
+
+    <div class="upper">
+        <div class="container-fluid">
+            <div class="col-md-4 hl text-center">
+             <h3>
+                 <i class="glyphicon glyphicon-user " /> <br/>
+                 10 Comments</h3>
+            </div>
+            <div class="col-md-4 hl text-center">
+                <h3>
+                <i class="glyphicon glyphicon-bullhorn" /> <br/>
+              9 Lunchers</h3>
+            </div>
+            <div class="col-md-4 text-center">
+                <h3>
+                <i class="glyphicon glyphicon-thumbs-up " /> <br/>
+                6 Suggestions</h3>
+            </div>
+        </div>
+        <div class="h-contain primary"><h4>Im hungry as a mother fucker</h4></div>
     </div>
 
-    <h2>Suggestions</h2>
+    <div class="left">
+        <div class="container-fluid">
+                <h1></h1>
+                <img gravatar-src="'chris.j.owen@hotmail.co.uk'" gravatar-size="183" class="main-pic img-circle img-polaroid">
+                <div class="text-center">
+                    <h3>Christopher Owen</h3>
+                    <h3>
+                        <i class="glyphicon glyphicon-bullhorn" /> <br/>
+                        9 Lunchers</h3>
+                    <h3>
+                        <i class="glyphicon glyphicon-thumbs-up " /> <br/>
+                        6 Suggestions</h3>
+                    <h3>
+                        <i class="glyphicon glyphicon-user " /> <br/>
+                        10 Comments</h3>
+                </div>
+        </div>
+    </div>
 
-    <ul>
-        <li data-ng-repeat="suggestion in model.suggestions">
-            {{suggestion._id}} : {{suggestion.by}} : {{suggestion.identifier}} : {{suggestion.at}}
-        </li>
-    </ul>
+    <comments comments="model.comments" lunch="lunch_id"></comments>
 
 
-    <input type="button" ng-click="events.addSuggestion()" value="Add suggestion" />
+    <div class="right">
+        <div class="container-fluid">
+            <h1>Suggestions</h1>
+            <div class="box col-md-12" data-ng-repeat="comment in model.comments">
+                <div class="col-md-5">
+                    <p class="bdy">{{comment.body}}</p>
+                </div>
+                <div class="col-md-6 pull-right"><img class="img-circle" gravatar-src="'chris.j.owen@hotmail.co.uk'" gravatar-size="100">
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
 
 </div>
+
 
 
 

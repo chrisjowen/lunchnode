@@ -1,17 +1,10 @@
-module.exports =
+Controller = require '../lib/controller'
 
-# Lists all lunchs
-  index: (req, res) ->
-    console.log(res.session)
-    current_user = req.session.current_user
-    if(current_user)
-      res.send current_user
-      res.statusCode = 201
-    else
-      res.statusCode = 401
-      res.send ""
+class SessionController extends Controller
+  @secure()
 
+  routes:
+    index: (req, res) -> res.send req.session.current_user
 
-
-
+module.exports = new SessionController().routes
 

@@ -1,7 +1,8 @@
 class LunchesController extends Angular
   @route app, "/lunches"
-
   @inject '$scope', 'Restangular'
+  @secure()
+
   initialize: ->
     @Restangular.one("lunch").getList().then((lunches) => @$scope.lunches = lunches)
   events: () =>

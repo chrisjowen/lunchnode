@@ -1,22 +1,14 @@
 class HomeController extends Angular
   @route app, "/"
-  @inject '$scope', '$location', 'Facebook', 'Auth'
+  @inject '$scope', '$location','Auth'
 
   initialize: () ->
-    @Auth.currentUser().then(@userLoggedIn, @userNotLoggedIn)
-
+    if @Auth.isAuthenticated()
+      @userLoggedIn(@Auth.account())
   events: () ->
-    login : @login
-
-  login: () =>
-    console.log("logging in")
-    @Facebook.login (response) =>
-      console.log response
-      @Auth.newUser(response.authResponse.accessToken).then @userLoggedIn
+    login : () => @Auth.login @userLoggedIn
 
   userLoggedIn: (user) =>
     @$location.path("/lunches")
 
-  userNotLoggedIn: (error) =>
-    @$scope.user = null
   

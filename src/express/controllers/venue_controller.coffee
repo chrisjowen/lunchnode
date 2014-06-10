@@ -4,7 +4,6 @@ fs = require('node-foursquare-venues')('GYQIYH2WJYWFHAOEXPME3NG5EW1JWZJLN5O5NIGF
 class VenueController extends Controller
   constructor : ->
 
-
   routes:
     search: (req, res) =>
       fs.venues.explore req.body.criteria, (err, results) =>

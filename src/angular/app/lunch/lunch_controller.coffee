@@ -1,7 +1,8 @@
 class LunchController extends Angular
   @route app, "/lunch/:lunch_id"
-
   @inject '$scope', '$rootScope', '$routeParams', 'Restangular'
+  @secure()
+
   initialize: ->
     @$rootScope.fluid = true
     @lunch_id = @$routeParams.lunch_id
@@ -9,16 +10,16 @@ class LunchController extends Angular
     @$scope.state = "viewing"
 
   events: () =>
-    addComment: () =>
-      @Restangular.one("comment", "create").post(@lunch_id, @$scope.model.comment).then((comment) => console.log(comment))
-
     selectVenue: (venue) =>
       @$scope.state = "viewing"
       @Restangular.one("suggestion", "create").post(@lunch_id, {identifier : venue.id}).then((comment) => console.log(comment))
 
   lunchReceived: (lunch) =>
     @$scope.model = lunch
+    @Restangular.one("lunch").one("invited", @lunch_id).get().then (invited) => @$scope.model.invited = invited
+
     @listenForLunchInfo()
+
 
   listenForLunchInfo: () =>
     socket = io("http://localhost:9000")

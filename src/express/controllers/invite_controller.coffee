@@ -1,7 +1,7 @@
 Lunch = require '../models/lunch'
 Controller = require '../lib/controller'
 
-class CommentController extends Controller
+class InviteController extends Controller
   @secure()
 
   initialize : ->
@@ -9,9 +9,12 @@ class CommentController extends Controller
 
   routes:
     create: (req, res) =>
-        req.lunch.addComment(req.body, req.current_user)
+        req.lunch.invite(req.body.invitedId, req.current_user)
         res.send "ok"
         res.statusCode = 200
 
-module.exports = new CommentController().routes
+
+
+
+module.exports = new InviteController().routes
 

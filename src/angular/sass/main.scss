@@ -1,48 +1,163 @@
 @import url(http://fonts.googleapis.com/css?family=Fjalla+One|Average);
 
 
-.hl-primary {
-  background: #2398C9;
-  h1,h2,h3,h4, p,label,input, i { color:white;}
-}
-
-.hl-secondary {
-  background: lightslategrey;
-  h1,h2,h3,h4, p,label,input, i{ color:white;}
-}
-
-.icon-wrapper{
-  padding:9px;
-  font-size:50px;
-}
-
-.home-section{
-  min-height: 200px;
-}
-
-.btn-fb {
-  background: #3B5998;
-  color: #D3D8E8 !important;
-}
-
 .angular-google-map-container { height: 500px; }
 
 body{
-    font-family: 'Average', serif; color:gray;
-    h1,h2,h3,h4 { font-family: 'Fjalla One', sans-serif; color:gray;}
-    p,label,input { font-family: 'Average', serif; color:gray;}
-    .panel{
-         background: transparent;
-    }
-    .panel-black {
-          background:black;
-      }
-    .panel-white {
-      background:white;
-    }
+  background: url('/images/bg.png') !important;
+  font-family: 'Average', serif;
+  h1,h2,h3,h4 { font-family: 'Fjalla One', sans-serif; }
+  p,label,input { font-family: 'Average', serif; }
+}
 
-    .active {
-      h1,h2,h3,h4, p,label,input { color:white;}
-    }
-    
+nav{
+  background:#32B38C;
+
+
+
+}
+.navbar-default{
+  border:none !important;
+
+}
+.navbar-default .navbar-brand, .navbar-default a{
+  color:white !important;
+}
+$headerHeight: 48px;
+$upperHeight: 135px;
+$leftWidth: 215px;
+$rightWidth: 365px;
+$bottomHeight: 50px;
+$rightColor: transparent;
+$mainColor: white;
+$upperColor: transparent;
+$lowerColor: #32B38C;
+$leftColor: #383735;
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+
+
+.h-contain{
+  padding:9px;
+  h1,h2,h3,h4 {
+    margin:0;
+  }
+  &.primary{
+    background: $leftColor;
+    color: white;
+  }
+}
+
+html, body {
+  height: 100%;
+}
+
+.header {
+  height: $headerHeight;
+  background: red;
+}
+
+.wrapper {
+  position: relative;
+  height: calc(100% - #{$headerHeight});
+}
+
+.left {
+  position: absolute;
+  bottom: 0;
+  overflow-y: auto;
+  top: 0;
+  left: 0;
+  width: $leftWidth;
+}
+
+.right {
+  position: absolute;
+  height: 100%;
+  overflow: auto;
+  top: 0;
+  right: 0;
+  width: $rightWidth;
+  background: $rightColor;
+}
+
+.body {
+  position: absolute;
+  height: calc(100% - #{$upperHeight} - #{$bottomHeight});
+  width: calc(100% - #{$rightWidth} - #{$leftWidth});
+  top: $upperHeight;
+  left: $leftWidth;
+  overflow-y: auto;
+  background: $mainColor;
+  padding: 10px 0 0 0;
+}
+
+.upper {
+  position: absolute;
+  height: $upperHeight;
+  width: calc(100% - #{$rightWidth} - #{$leftWidth});
+  top: 0;
+  left: $leftWidth;
+  div.hl {
+    border-right: solid 1px lightgray;
+  }
+  background: $upperColor;
+  color: $leftColor;
+  border-bottom:solid 10px white;
+}
+
+.bottom {
+  position: absolute;
+  bottom: 0;
+  left: $leftWidth;
+  width: calc(100% - #{$rightWidth} -  #{$leftWidth});
+  height: $bottomHeight;
+  padding:5px 0;
+  background: $lowerColor;
+  border-top:solid 10px white;
+}
+
+
+.box {
+  background-color: #fff;
+  -webkit-box-shadow: 0 1px 1px rgba(0,0,0,0.15);
+  -moz-box-shadow: 0 1px 1px rgba(0,0,0,0.15);
+  box-shadow: 0 1px 1px rgba(0,0,0,0.15);
+  margin: 0 5px 20px;
+  padding: 12px;
+  position: relative;
+}
+
+
+.comment {
+  border-bottom: solid 1px #eee;
+  margin: 0 5px 20px;
+  padding: 12px;
+  position: relative;
+  .bdy{
+    padding:9px;
+    border:solid 1px #eee;
+  }
+  .time{
+    font-size:0.5em;
+  }
+  .usr{
+    font-weight: bold;
+  }
+}
+
+.main-pic {
+  border-bottom:solid 15px #EA866C;
+}
+
+.main-intro {
+  background: #eee;
+  padding: 18px;
+  h3{
+    margin: 0;
+  }
 }

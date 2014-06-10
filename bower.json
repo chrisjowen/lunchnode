@@ -23,6 +23,8 @@
     "angular-facebook": "~0.2.2",
     "angular-ui": "~0.4.0",
     "socket.io": "~1.0.4",
-    "socket.io-client": "~1.0.4"
+    "socket.io-client": "~1.0.4",
+    "jquery": "~2.1.1",
+    "angular-gravatar": "~0.1.4"
   }
 }

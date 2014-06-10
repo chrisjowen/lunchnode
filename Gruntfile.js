@@ -53,10 +53,12 @@
       html: {
         files: [
           // includes files within path
+          {cwd:'src/angular/', expand: true, src: ['images/*.png'], dest: 'dist/ui/'},
           {cwd:'src/angular/app/', expand: true, src: ['*.html'], dest: 'dist/ui/'},
-          {cwd:'src/angular/app/', expand: true, src: ['**/*.html'], dest: 'dist/ui/'},
+          {cwd:'src/angular/app/', expand: true, src: ['**/*.html'], dest: 'dist/ui/'}
         ]
       }
+
     },
     
     coffee: {
@@ -90,6 +92,10 @@
         venue: {
             cwd: 'src/tasks',
             command: 'coffee venue_task.coffee'
+        },
+        fb: {
+            cwd: 'src/tasks',
+            command: 'coffee fb_task.coffee'
         }
     },
      supervisor: {

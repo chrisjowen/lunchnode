@@ -1,5 +1,9 @@
 mongoose = require 'mongoose'
 User  = new mongoose.Schema(
-  fb_ref: {type: String, required: true}
+  fbId: {type: String, required: true}
+  firstName: String
+  lastName: String
+  email: String
+  locale: String
 )
 module.exports = mongoose.model 'User', User
