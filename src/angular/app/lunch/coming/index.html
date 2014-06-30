@@ -1,0 +1,52 @@
+
+
+
+<section class="hbox stretch">
+    <section class="col-sm-12 bg vbox">
+
+        <header class="header no-padder text-center-nav-xs" style="z-index:10000">
+            <div class="bg-info ">
+                <div class="dropdown dropup wrapper-sm clearfix">
+                    <form  ng-submit="events.addComment()" class="m-b-none">
+                        <div class="input-group">
+                            <input type="text" class="form-control" ng-model="model.comment.body" placeholder="search for category or restaurant">
+                            <span class="input-group-btn">
+                              <button class="btn bg-info" type="button">Search</button>
+                            </span>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </header>
+
+        <section  class="scrollable">
+            <section class="vbox">
+                <section class="scrollable hover" id="invited-list">
+
+                    <div class="container-fluid">
+                        <div class="col-sm-3 animated fadeInLeft" ng-repeat="invited in model.invitees">
+                            <section class="panel panel-info">
+                                <div class="panel-body">
+                                    <span class="pull-left thumb-xs m-t-xs avatar m-l-xs m-r-sm">
+                                        <img src="images/a1.png" alt="..." class="img-circle">
+                                        <!--<i class="on b-light right sm"></i>-->
+                                    </span>
+                                    <div class="clear">
+                                        <div><a href="#">Chris Fox</a></div>
+                                        <small class="text-muted">New York</small>
+                                    </div>
+                                </div>
+                            </section>
+                        </div>
+                    </div>
+
+
+
+
+                </section>
+            </section>
+        </section>
+    </section>
+</section>
+
+

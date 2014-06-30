@@ -1,4 +1,5 @@
-Lunch = require '../models/lunch'
+mongoose = require 'mongoose'
+Lunch = mongoose.model('Lunch')
 Controller = require '../lib/controller'
 
 class LunchController extends Controller
@@ -10,6 +11,10 @@ class LunchController extends Controller
   routes:
     index: (req, res) ->
       Lunch.find {}, (err, lunch) ->
+        res.send lunch
+
+    today: (req, res) ->
+      Lunch.find {}, {title: 1, _id:1 }, (err, lunch) ->
         res.send lunch
 
     create: (req, res) ->

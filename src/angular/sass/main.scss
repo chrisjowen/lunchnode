@@ -1,163 +1,215 @@
-@import url(http://fonts.googleapis.com/css?family=Fjalla+One|Average);
+@import 'template/bootstrap.css';
+@import 'template/animate.css';
+@import 'template/font.css';
+@import 'template/font-awesome.min.css';
+@import 'template/simple-line-icons.css';
+@import 'template/app.css';
 
-
-.angular-google-map-container { height: 500px; }
-
-body{
-  background: url('/images/bg.png') !important;
-  font-family: 'Average', serif;
-  h1,h2,h3,h4 { font-family: 'Fjalla One', sans-serif; }
-  p,label,input { font-family: 'Average', serif; }
+[ng-cloak] {
+  display:none;
 }
 
-nav{
-  background:#32B38C;
-
-
-
+#feed-list, .with-header {
+  margin-top:20px;
+  margin-bottom:60px;
 }
-.navbar-default{
-  border:none !important;
-
-}
-.navbar-default .navbar-brand, .navbar-default a{
-  color:white !important;
-}
-$headerHeight: 48px;
-$upperHeight: 135px;
-$leftWidth: 215px;
-$rightWidth: 365px;
-$bottomHeight: 50px;
-$rightColor: transparent;
-$mainColor: white;
-$upperColor: transparent;
-$lowerColor: #32B38C;
-$leftColor: #383735;
-
-* {
-  margin: 0;
-  padding: 0;
-}
-
-
-
-.h-contain{
-  padding:9px;
-  h1,h2,h3,h4 {
-    margin:0;
-  }
-  &.primary{
-    background: $leftColor;
-    color: white;
-  }
-}
-
-html, body {
-  height: 100%;
-}
-
-.header {
-  height: $headerHeight;
-  background: red;
-}
-
-.wrapper {
-  position: relative;
-  height: calc(100% - #{$headerHeight});
-}
-
-.left {
-  position: absolute;
-  bottom: 0;
-  overflow-y: auto;
-  top: 0;
-  left: 0;
-  width: $leftWidth;
-}
-
-.right {
-  position: absolute;
-  height: 100%;
-  overflow: auto;
-  top: 0;
-  right: 0;
-  width: $rightWidth;
-  background: $rightColor;
-}
-
-.body {
-  position: absolute;
-  height: calc(100% - #{$upperHeight} - #{$bottomHeight});
-  width: calc(100% - #{$rightWidth} - #{$leftWidth});
-  top: $upperHeight;
-  left: $leftWidth;
-  overflow-y: auto;
-  background: $mainColor;
-  padding: 10px 0 0 0;
-}
-
-.upper {
-  position: absolute;
-  height: $upperHeight;
-  width: calc(100% - #{$rightWidth} - #{$leftWidth});
-  top: 0;
-  left: $leftWidth;
-  div.hl {
-    border-right: solid 1px lightgray;
-  }
-  background: $upperColor;
-  color: $leftColor;
-  border-bottom:solid 10px white;
-}
-
-.bottom {
-  position: absolute;
-  bottom: 0;
-  left: $leftWidth;
-  width: calc(100% - #{$rightWidth} -  #{$leftWidth});
-  height: $bottomHeight;
-  padding:5px 0;
-  background: $lowerColor;
-  border-top:solid 10px white;
-}
-
-
-.box {
-  background-color: #fff;
-  -webkit-box-shadow: 0 1px 1px rgba(0,0,0,0.15);
-  -moz-box-shadow: 0 1px 1px rgba(0,0,0,0.15);
-  box-shadow: 0 1px 1px rgba(0,0,0,0.15);
-  margin: 0 5px 20px;
-  padding: 12px;
+#search-items {
   position: relative;
 }
 
+#search-results {
+  margin-top:20px;
+}
 
-.comment {
-  border-bottom: solid 1px #eee;
-  margin: 0 5px 20px;
-  padding: 12px;
-  position: relative;
-  .bdy{
-    padding:9px;
-    border:solid 1px #eee;
+.selected{
+  background: red !important;
+}
+
+#fixed-map, .full-height{
+  height:100%;
+  .angular-google-map-container { height: 100%; }
+}
+.result-item {
+  min-height:150px;
+}
+
+#invited-list {
+  margin-top:50px;
+}
+
+@media (max-width: 767px) {
+  #feed-list {
+    margin-top:70px;
   }
-  .time{
-    font-size:0.5em;
-  }
-  .usr{
-    font-weight: bold;
+  .fixed-xs{
+    position: fixed;
+    top:0;
   }
 }
 
-.main-pic {
-  border-bottom:solid 15px #EA866C;
+.angular-google-map-container { height: 400px; }
+
+#ballsWaveG{
+  position:relative;
+  width:128px;
+  height:30px}
+
+.ballsWaveG{
+  position:absolute;
+  top:0;
+  background-color:#F5DFB3;
+  width:16px;
+  height:16px;
+  -moz-animation-name:ballsWaveG;
+  -moz-animation-duration:1.3s;
+  -moz-animation-iteration-count:infinite;
+  -moz-animation-direction:linear;
+  -moz-border-radius:8px;
+  -webkit-animation-name:ballsWaveG;
+  -webkit-animation-duration:1.3s;
+  -webkit-animation-iteration-count:infinite;
+  -webkit-animation-direction:linear;
+  -webkit-border-radius:8px;
+  -ms-animation-name:ballsWaveG;
+  -ms-animation-duration:1.3s;
+  -ms-animation-iteration-count:infinite;
+  -ms-animation-direction:linear;
+  -ms-border-radius:8px;
+  -o-animation-name:ballsWaveG;
+  -o-animation-duration:1.3s;
+  -o-animation-iteration-count:infinite;
+  -o-animation-direction:linear;
+  -o-border-radius:8px;
+  animation-name:ballsWaveG;
+  animation-duration:1.3s;
+  animation-iteration-count:infinite;
+  animation-direction:linear;
+  border-radius:8px;
 }
 
-.main-intro {
-  background: #eee;
-  padding: 18px;
-  h3{
-    margin: 0;
+#ballsWaveG_1{
+  left:0;
+  -moz-animation-delay:0.52s;
+  -webkit-animation-delay:0.52s;
+  -ms-animation-delay:0.52s;
+  -o-animation-delay:0.52s;
+  animation-delay:0.52s;
+}
+
+#ballsWaveG_2{
+  left:16px;
+  -moz-animation-delay:0.65s;
+  -webkit-animation-delay:0.65s;
+  -ms-animation-delay:0.65s;
+  -o-animation-delay:0.65s;
+  animation-delay:0.65s;
+}
+
+#ballsWaveG_3{
+  left:32px;
+  -moz-animation-delay:0.78s;
+  -webkit-animation-delay:0.78s;
+  -ms-animation-delay:0.78s;
+  -o-animation-delay:0.78s;
+  animation-delay:0.78s;
+}
+
+#ballsWaveG_4{
+  left:48px;
+  -moz-animation-delay:0.91s;
+  -webkit-animation-delay:0.91s;
+  -ms-animation-delay:0.91s;
+  -o-animation-delay:0.91s;
+  animation-delay:0.91s;
+}
+
+#ballsWaveG_5{
+  left:64px;
+  -moz-animation-delay:1.04s;
+  -webkit-animation-delay:1.04s;
+  -ms-animation-delay:1.04s;
+  -o-animation-delay:1.04s;
+  animation-delay:1.04s;
+}
+
+#ballsWaveG_6{
+  left:80px;
+  -moz-animation-delay:1.17s;
+  -webkit-animation-delay:1.17s;
+  -ms-animation-delay:1.17s;
+  -o-animation-delay:1.17s;
+  animation-delay:1.17s;
+}
+
+#ballsWaveG_7{
+  left:96px;
+  -moz-animation-delay:1.3s;
+  -webkit-animation-delay:1.3s;
+  -ms-animation-delay:1.3s;
+  -o-animation-delay:1.3s;
+  animation-delay:1.3s;
+}
+
+#ballsWaveG_8{
+  left:112px;
+  -moz-animation-delay:1.43s;
+  -webkit-animation-delay:1.43s;
+  -ms-animation-delay:1.43s;
+  -o-animation-delay:1.43s;
+  animation-delay:1.43s;
+}
+
+@-moz-keyframes ballsWaveG{
+  0%{
+    background-color:#F5DFB3;
   }
+
+  100%{
+    background-color:#FFFFFF;
+  }
+
+}
+
+@-webkit-keyframes ballsWaveG{
+  0%{
+    background-color:#F5DFB3;
+  }
+
+  100%{
+    background-color:#FFFFFF;
+  }
+
+}
+
+@-ms-keyframes ballsWaveG{
+  0%{
+    background-color:#F5DFB3;
+  }
+
+  100%{
+    background-color:#FFFFFF;
+  }
+
+}
+
+@-o-keyframes ballsWaveG{
+  0%{
+    background-color:#F5DFB3;
+  }
+
+  100%{
+    background-color:#FFFFFF;
+  }
+
+}
+
+@keyframes ballsWaveG{
+  0%{
+    background-color:#F5DFB3;
+  }
+
+  100%{
+    background-color:#FFFFFF;
+  }
+
 }

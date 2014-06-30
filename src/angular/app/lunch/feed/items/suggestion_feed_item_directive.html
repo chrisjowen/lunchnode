@@ -1,0 +1,42 @@
+<div>
+    <a class="pull-left thumb-sm avatar">
+        <img class="img-circle" gravatar-src="suggestion.user.email" >
+    </a>
+    <span class="arrow left "></span>
+    <section class="comment-body panel panel-default">
+        <header class="panel-heading bg-white">
+            <a href="#">{{suggestion.user.name}}</a>
+            <label class="label bg-info m-xl-m" >SUGGESTED</label>
+            <label class="label bg-info" >{{suggestion.votes.length}} votes</label>
+            <label  class="label bg-success animated fadeInLeft fadeInDown" ng-show="suggestion.voted">
+                You voted for this restaurant
+            </label>
+
+            <label class="label bg-info m-l-xs" ng-show="suggestion.isOrganiser">Organiser</label>
+            <span class="text-muted m-l-sm pull-right"><i class="fa fa-clock-o"></i>{{suggestion.at}}</span>
+        </header>
+        <div class="panel-body " ng-show="suggestion">
+            <h3 class="no-padder no-margin">
+                {{suggestion.name}}
+                <category-image class="thumb pull-right bg-info avatar"  category="suggestion.category" size="'64'" />
+
+            </h3>
+            <p>{{suggestion.location.address}},{{suggestion.location.state}},{{suggestion.location.postcode}}</p>
+            <label class="label bg-info" >{{suggestion.rating}}</label>
+
+        </div>
+        <div class="panel-footer">
+            <a  ng-click="events.showVenueDetails(suggestion)"class="btn ">
+                <i class="icon icon-info" />
+                Details
+            </a>
+            <a ng-click="events.vote(suggestion)" class="btn " ng-show="!suggestion.voted">
+                <i class="icon icon-like" />
+                Vote for this restaurant
+            </a>
+
+
+        </div>
+    </section>
+
+</div>

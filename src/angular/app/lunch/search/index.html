@@ -1,0 +1,60 @@
+<section class="hbox stretch ">
+
+    <section class="col-xs-12 col-lg-5 no-padder bg vbox" id="search-items">
+        <header class="header no-padder text-center-nav-xs" style="z-index:10000">
+            <div class="bg-info ">
+                <div class="dropdown dropup wrapper-sm clearfix">
+                    <form  ng-submit="events.addComment()" class="m-b-none">
+                        <div class="input-group">
+                            <input type="text" class="form-control" ng-model="model.comment.body" placeholder="search for category or restaurant">
+                            <span class="input-group-btn">
+                              <button class="btn bg-info" type="button">Search</button>
+                            </span>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </header>
+        <section class="scrollable" id="search-results">
+            <div class="container-fluid">
+
+                <h3 ng-show="!model.results">Loading...</h3>
+
+                <div class="col-sm-12 result-item animated fadeInLeft" ng-repeat="result in model.results" >
+                    <section class="panel panel-info" ng-class="{'animated fadeInTop selected' : result.selected}" id="result_{{result.id}}">
+                        <div class="panel-body">
+                               <category-image class="thumb pull-right m-l m-t-xs avatar bg-info" category="result.categories[0]" size="'64'" ></category-image>
+                            <div class="clear">
+                               <h4>{{result.name}}</h4>
+                                <span class="badge">{{result.location.distance}} meters</span>
+                                <span class="badge">{{result.rating}}</span>
+
+                                <small class="block text-muted">{{result.location.address}},{{result.location.state}},{{result.location.postcode}}</small>
+                                <a ng-click="events.venueInfo(result)" class="btn  bg-info">
+                                    <i class="icon icon-info" />
+                                    Vew Restaurant Info
+                                </a>
+
+                            </div>
+                        </div>
+
+
+                    </section>
+
+                </div>
+
+
+            </div>
+        </section>
+    </section>
+    <section class="hidden-md col-lg-7 no-padder bg vbox">
+        <section class="scrollable" id="fixed-map-container" >
+            <div id="fixed-map">
+                <google-map class="full-height" center="map.center" zoom="map.zoom">
+                    <markers models='map.markers'  coords="'self'" icon="'icon'" click="events.markerClicked">
+                    </markers>
+                </google-map>
+            </div>
+        </section>
+    </section>
+</section>

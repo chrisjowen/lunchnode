@@ -53,9 +53,12 @@
       html: {
         files: [
           // includes files within path
-          {cwd:'src/angular/', expand: true, src: ['images/*.png'], dest: 'dist/ui/'},
+          {cwd:'src/angular/sass', expand: true, src: ['template/*'], dest: 'dist/ui/css'},
+          {cwd:'src/angular/', expand: true, src: ['images/*'], dest: 'dist/ui/'},
+          {cwd:'src/angular/', expand: true, src: ['fonts/*'], dest: 'dist/ui/'},
           {cwd:'src/angular/app/', expand: true, src: ['*.html'], dest: 'dist/ui/'},
-          {cwd:'src/angular/app/', expand: true, src: ['**/*.html'], dest: 'dist/ui/'}
+          {cwd:'src/angular/app/', expand: true, src: ['**/*.html'], dest: 'dist/ui/'},
+          {cwd:'src/', expand: true, src: ['vendor/**/**/**'], dest: 'dist/ui/js/'}
         ]
       }
 
@@ -120,6 +123,19 @@
      'concurrent:server'
 
  ]);
+
+
+
+
+ grunt.registerTask('no-server', [
+     'sass:dist',
+     'coffee:ui',
+     'coffee:api',
+     'copy',
+     'watch'
+
+ ]);
+
 
 grunt.registerTask('venue', [
     'exec:venue'

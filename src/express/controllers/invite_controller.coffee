@@ -1,4 +1,3 @@
-Lunch = require '../models/lunch'
 Controller = require '../lib/controller'
 
 class InviteController extends Controller
@@ -12,8 +11,6 @@ class InviteController extends Controller
         req.lunch.invite(req.body.invitedId, req.current_user)
         res.send "ok"
         res.statusCode = 200
-
-
 
 
 module.exports = new InviteController().routes

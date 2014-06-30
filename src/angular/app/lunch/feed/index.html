@@ -1,0 +1,38 @@
+<section class="hbox stretch">
+    <section id="feed" class="col-sm-10 no-padder bg vbox">
+        <section id="feed-list" class="scrollable">
+            <div class="container-fluid">
+                <div class="col-sm-12">
+                    <section class="comment-list block">
+                    <article  class="comment-item animated fadeInLeft " ng-repeat="item in feedItems">
+                        <div ng-switch on="item.type">
+                            <div  ng-switch-when="comments">
+                                <comment-feed-item comment="item.data" user="user"></comment-feed-item>
+                            </div>
+                            <div ng-switch-when="suggestions">
+                                <suggestion-feed-item suggestion="item.data" scroll="scroll()"  user="user"></suggestion-feed-item>
+                            </div>
+                        </div>
+                    </article>
+                </section>
+                </div>
+            </div>
+            <div id="feed-end" ></div>
+
+        </section>
+        <footer class="footer  fixed-xs no-padder text-center-nav-xs" style="z-index:10000">
+            <div class="bg-info ">
+                <div class="dropdown dropup wrapper-sm clearfix">
+                    <form  ng-submit="events.addComment()" class="m-b-none">
+                        <div class="input-group">
+                            <input type="text" class="form-control" ng-model="comment.body" placeholder="Input your comment here">
+                            <span class="input-group-btn">
+                              <button class="btn bg-info" type="button">POST</button>
+                            </span>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </footer>
+    </section>
+</section>

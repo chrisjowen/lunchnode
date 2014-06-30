@@ -1,0 +1,14 @@
+<section class="panel panel-default col-sm-12" data-ng-repeat="suggestion in suggestions">
+
+    <h3>
+        {{suggestion.name}}
+
+        <category-image class="thumb pull-right bg-info avatar"  category="suggestion.category" size="'64'" />
+    </h3>
+    <p>{{suggestion.location.address}},{{suggestion.location.state}},{{suggestion.location.postcode}}</p>
+    <label class="label bg-info " ><i class="icon icon-like"></i> {{suggestion.votes.length}} votes</label>
+
+    <p> &nbsp; </p>
+</section>
+
+

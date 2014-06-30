@@ -54,6 +54,7 @@ app.use bodyParser()
 routes = require './routes'
 routes(app)
 
+require './models/model'
 
 feed = require './feed'
 server = require('http').Server(app)

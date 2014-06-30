@@ -1,10 +1,14 @@
 class LunchesController extends Angular
-  @route app, "/lunches"
-  @inject '$scope', 'Restangular'
+  @route app, "lunches", "/lunches"
+  @inject '$scope', 'Restangular', '$state'
   @secure()
 
   initialize: ->
-    @Restangular.one("lunch").getList().then((lunches) => @$scope.lunches = lunches)
+    @Restangular.one("lunch").one("today").getList().then((lunches) => @$scope.lunches = lunches)
+    @$scope.options = options =
+      country: 'gb'
+
   events: () =>
     createNewLunch: () =>
-      @Restangular.one("lunch").post("create", @$scope.model.lunch).then((lunch)=> @$scope.lunches.push(lunch))
+      @Restangular.one("lunch").post("create", @$scope.model.lunch).then (lunch)=>
+        @$state.go("lunch", {'lunchId': lunch._id})

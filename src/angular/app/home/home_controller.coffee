@@ -1,5 +1,5 @@
 class HomeController extends Angular
-  @route app, "/"
+  @route app, "home", "/"
   @inject '$scope', '$location','Auth'
 
   initialize: () ->

@@ -1,110 +1,91 @@
-<div class="header">
-    <div id="header" class="navbar navbar-default navbar-fixed-top">
-        <div class="navbar-header">
-            <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target=".navbar-collapse">
-                <i class="icon-reorder"></i>
-            </button>
-            <a class="navbar-brand" href="#">
-                Brand
-            </a>
-        </div>
-        <nav class="collapse navbar-collapse">
-            <ul class="nav navbar-nav">
-                <li>
-                    <a href="#">Navbar Item 1</a>
-                </li>
-                <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Navbar Item 2<b class="caret"></b></a>
-                    <ul class="dropdown-menu">
-                        <li><a href="#">Navbar Item2 - Sub Item 1</a></li>
+
+<section class="hbox stretch">
+    <aside class="bg-black aside hidden-print" id="nav">
+        <section class="vbox">
+            <section class="w-f-md scrollable">
+                <!-- nav -->
+                <nav class="nav-primary hidden-xs">
+                    <ul class="nav bg clearfix">
+                        <li class="hidden-nav-xs padder m-t m-b-sm text-xs text-muted">
+                            Options
+                        </li>
+                        <li ng-class="{'active' : state.current.name=='lunch.info'}">
+                            <a  ui-sref="lunch.info" >
+                                <i class="icon-info icon"></i>
+                                <span class="font-bold">Info </span>
+                            </a>
+                        </li>
+                        <li ng-class="{'active' : state.current.name=='lunch.feed'}">
+                            <a ui-sref="lunch.feed" >
+                                <i class="icon icon-speech"></i>
+                                <b class="badge bg-danger pull-right" ng-show="newFeedItems > 0">{{newFeedItems}}</b>
+                                <span class="font-bold">Activity</span>
+                            </a>
+                        </li>
+                        <li ng-class="{'active' : state.current.name=='lunch.invited'}">
+                            <a ui-sref="lunch.invited" >
+                                <i class="icon icon-user"></i>
+                                <span class="font-bold">Who's Coming</span>
+                            </a>
+                        </li>
+                        <li ng-class="{'active' : state.current.name=='lunch.search'}">
+                            <a ui-sref="lunch.search" >
+                                <i class="icon-support icon"></i>
+                                <span class="font-bold">Add a Suggestion </span>
+                            </a>
+                        </li>
+                        <li class="m-b hidden-nav-xs"></li>
                     </ul>
-                </li>
-                <li>
-                    <a href="#">Navbar Item 3</a>
-                </li>
-            </ul>
-            <ul class="nav navbar-nav pull-right">
-                <li class="dropdown">
-                    <a href="#" id="nbAcctDD" class="dropdown-toggle" data-toggle="dropdown"><i class="icon-user"></i>Username<i class="icon-sort-down"></i></a>
-                    <ul class="dropdown-menu pull-right">
-                        <li><a href="#">Log Out</a></li>
-                    </ul>
-                </li>
-            </ul>
-        </nav>
-    </div>
-</div>
-
-
-
-<div class="wrapper">
-
-
-
-    <div class="upper">
-        <div class="container-fluid">
-            <div class="col-md-4 hl text-center">
-             <h3>
-                 <i class="glyphicon glyphicon-user " /> <br/>
-                 10 Comments</h3>
-            </div>
-            <div class="col-md-4 hl text-center">
-                <h3>
-                <i class="glyphicon glyphicon-bullhorn" /> <br/>
-              9 Lunchers</h3>
-            </div>
-            <div class="col-md-4 text-center">
-                <h3>
-                <i class="glyphicon glyphicon-thumbs-up " /> <br/>
-                6 Suggestions</h3>
-            </div>
-        </div>
-        <div class="h-contain primary"><h4>Im hungry as a mother fucker</h4></div>
-    </div>
-
-    <div class="left">
-        <div class="container-fluid">
-                <h1></h1>
-                <img gravatar-src="'chris.j.owen@hotmail.co.uk'" gravatar-size="183" class="main-pic img-circle img-polaroid">
-                <div class="text-center">
-                    <h3>Christopher Owen</h3>
-                    <h3>
-                        <i class="glyphicon glyphicon-bullhorn" /> <br/>
-                        9 Lunchers</h3>
-                    <h3>
-                        <i class="glyphicon glyphicon-thumbs-up " /> <br/>
-                        6 Suggestions</h3>
-                    <h3>
-                        <i class="glyphicon glyphicon-user " /> <br/>
-                        10 Comments</h3>
+                </nav>
+                <!-- / nav -->
+            </section>
+            <footer class="footer hidden-xs no-padder text-center-nav-xs">
+                <div class="bg hidden-xs ">
+                    <div class="dropdown dropup wrapper-sm clearfix">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                  <span class="thumb-sm avatar pull-left m-l-xs">
+                    <img src="images/a3.png" class="dker" alt="...">
+                    <i class="on b-black"></i>
+                  </span>
+                  <span class="hidden-nav-xs clear">
+                    <span class="block m-l">
+                      <strong class="font-bold text-lt">John.Smith</strong>
+                      <b class="caret"></b>
+                    </span>
+                    <span class="text-muted text-xs block m-l">Art Director</span>
+                  </span>
+                        </a>
+                        <ul class="dropdown-menu animated fadeInRight aside text-left">
+                            <li>
+                                <span class="arrow bottom hidden-nav-xs"></span>
+                                <a href="#">Settings</a>
+                            </li>
+                            <li>
+                                <a href="profile.html">Profile</a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <span class="badge bg-danger pull-right">3</span>
+                                    Notifications
+                                </a>
+                            </li>
+                            <li>
+                                <a href="docs.html">Help</a>
+                            </li>
+                            <li class="divider"></li>
+                            <li>
+                                <a href="modal.lockme.html" data-toggle="ajaxModal">Logout</a>
+                            </li>
+                        </ul>
+                    </div>
                 </div>
-        </div>
-    </div>
+            </footer>
+        </section>
+    </aside>
+    <section id="content" ui-view>
 
-    <comments comments="model.comments" lunch="lunch_id"></comments>
-
-
-    <div class="right">
-        <div class="container-fluid">
-            <h1>Suggestions</h1>
-            <div class="box col-md-12" data-ng-repeat="comment in model.comments">
-                <div class="col-md-5">
-                    <p class="bdy">{{comment.body}}</p>
-                </div>
-                <div class="col-md-6 pull-right"><img class="img-circle" gravatar-src="'chris.j.owen@hotmail.co.uk'" gravatar-size="100">
-                </div>
-            </div>
-        </div>
-    </div>
-
-
-
-
-
-
-</div>
-
-
+    </section>
+</section>
 
 
 

@@ -6,20 +6,21 @@ String::toSnakeCase = ->
   @replace /([A-Z])/g, ($1) ->
     "_" + $1.toLowerCase()
 
+
 class @Angular
   @directive: (app, options) ->
     name = @getName().replace('Controller', '')
     name = "#{name[0].toLowerCase()}#{name.substring(1)}"
     options.controller = @
-    options.templateUrl = "#{options.templateFolder||''}#{name.toSnakeCase()}_directive.html"
+    options.templateUrl = "#{options.templateFolder||''}#{name.toSnakeCase()}_directive.html" if options.templateFolder?
     app.directive name, () -> options
 
-  @route: (app, route) ->
+  @route: (app, state, url) ->
     name = @getName()
     app.controller name, @
-    view = "#{name.replace('Controller', '').toLowerCase()}/index.html"
+    view = "#{state.replace(/\./g,"/")}/index.html"
     app.controller name, @
-    app.config ($routeProvider) -> $routeProvider.route(route, view, name)
+    app.config ($stateProvider) -> $stateProvider.route(state, url, view, name)
 
   @service: (app) ->
     name = @getName()
@@ -60,11 +61,20 @@ class @Angular
     if @events!=undefined
       @$scope.events = @events()
 
-    if(@constructor.$secure and !@Auth.isAuthenticated())
-      @Auth.checkServerSession().catch(() => @$location.path("/"))
+    if(@constructor.$secure)
+      if @Auth.isAuthenticated()
+        @$scope.user = @Auth.account()
+      else
+        @Auth.checkServerSession().then((user) => @$scope.user = @Auth.account()).catch(() => @$location.path("/"))
 
 
 
+    @$scope.$safeApply = (fn) ->
+      phase = @$root.$$phase
+      if phase is "$apply" or phase is "$digest"
+        fn()  if fn and (typeof (fn) is "function")
+      else
+        @$apply fn
 
     @initialize?()
 

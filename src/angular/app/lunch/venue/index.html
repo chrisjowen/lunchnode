@@ -1,0 +1,89 @@
+<section class="hbox stretch" ng-cloak>
+    <section class="vbox">
+        <section class="scrollable">
+
+        <div class="container-fluid animated animate fadeInLeft" >
+            <div class="col-xs-12 padder-v">
+                <h1 class="no-margin">{{venue.name}} </h1>
+                <small class="block text-muted">{{venue.location.fullAddress}}</small>
+
+            </div>
+
+
+
+            <div class="col-xs-7">
+                        <div class="clear">
+                            <a ng-click="events.selectVenue(venue)" class="btn btn-block btn-s-xl btn-success">
+                                <i class="icon icon-like" />
+                                Suggest this restaurant
+                            </a>
+                        </div>
+                <br/>
+
+
+
+                <section class="panel panel-info portlet-item">
+                    <header class="panel-heading">
+                        Information
+                    </header>
+                    <div class="list-group bg-white">
+                        <a href="#" class="list-group-item">
+                            <i class="fa fa-fw fa-building-o"></i>  {{venue.location.fullAddress}}
+                        </a>
+                        <a href="#" class="list-group-item"  ng-show="venue.price">
+                            <i class="fa fa-fw fa-dollar"></i>  {{venue.price.message}}
+                        </a>
+                        <a href="#" class="list-group-item" ng-show="venue.contact.formattedPhone">
+                            <i class="fa fa-fw fa-phone"></i> {{venue.contact.formattedPhone}}
+                        </a>
+
+                        <a href="#" class="list-group-item" ng-show="venue.url">
+                            <i class="fa fa-fw fa-bookmark"></i> {{venue.url}}
+                        </a>
+
+                    </div>
+                </section>
+
+
+
+                <h4>Comments</h4>
+                <article class="media" data-ng-repeat="comment in comments">
+                    <span class="pull-left thumb-sm"><img src="{{comment.user.photo.prefix}}64{{comment.user.photo.suffix}}" alt="..."></span>
+                    <div class="media-body">
+                        <div class="pull-right media-xs text-center text-muted">
+                            <strong class="h4">12:18</strong><br>
+                            <small class="label bg-light">pm</small>
+                        </div>
+
+                        <small class="block">{{comment.user.firstName}}</small>
+                        <small class="block m-t-sm">{{comment.text}}</small>
+                    </div>
+                    <hr/>
+                </article>
+
+            </div>
+            <div class="col-xs-5">
+                <section class="panel panel-info">
+                    <div class="panel-body">
+                        <div class="clear">
+                            <google-map center="venueMap.center" zoom="venueMap.zoom" refresh="venueMap.refresh">
+                                <markers models='venueMap.markers' coords="'self'" icon="'icon'" >
+                                </markers>
+                            </google-map>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="panel panel-info">
+                    <div class="panel-body">
+                        <div class="clear">
+                            <img src="{{photo.prefix}}300x300{{photo.suffix}}" alt="" class="padder-v img col-xs-6" data-ng-repeat="photo in photos"/>
+                        </div>
+                    </div>
+                </section>
+            </div>
+
+        </div>
+        </section>
+    </section>
+</section>

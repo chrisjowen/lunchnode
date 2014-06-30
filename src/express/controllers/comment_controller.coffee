@@ -1,4 +1,3 @@
-Lunch = require '../models/lunch'
 Controller = require '../lib/controller'
 
 class CommentController extends Controller
@@ -9,9 +8,9 @@ class CommentController extends Controller
 
   routes:
     create: (req, res) =>
-        req.lunch.addComment(req.body, req.current_user)
-        res.send "ok"
-        res.statusCode = 200
+      req.lunch.addComment(req.body, req.current_user)
+      res.send "ok"
+      res.statusCode = 200
 
 module.exports = new CommentController().routes
 

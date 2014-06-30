@@ -1,17 +1,25 @@
-<html>
+<html lang="en" class="app">
     <head>
-        <link rel="stylesheet" type="text/css" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+        <meta charset="utf-8" />
+        <title>Musik | Web Application</title>
+        <meta name="description" content="app, web app, responsive, admin dashboard, admin, flat, flat ui, ui kit, off screen nav" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
         <link rel="stylesheet" type="text/css" href="css/main.css">
-        <link href='//fonts.googleapis.com/css?family=Fjalla+One|Average' rel='stylesheet' type='text/css'>
-        <meta name="viewport" content="width=device-width, initial-scale=1">
     </head>
     <body ng-app="lunchy">
-    <div ng-view>
-
-    </div>
-        <script src='//maps.googleapis.com/maps/api/js?sensor=false'></script>
-        <!-- bower components -->
+        <div ui-view>
+        </div>
+        <script type="text/javascript" src="//maps.googleapis.com/maps/api/js?libraries=places&sensor=false"></script>
+        <!-- bower components/vendor (template) -->
         <script type="text/javascript" src="/bower_components/jquery/dist/jquery.js"></script>
+        <script src="/js/vendor/bootstrap.js"></script>
+        <script src="/js/vendor/app.js"></script>
+        <script src="/js/vendor/slimscroll/jquery.slimscroll.min.js"></script>
+        <script src="/js/vendor/app.plugin.js"></script>
+        <script type="text/javascript" src="/bower_components/jquery.easing/js/jquery.easing.js"></script>
+        <script type="text/javascript" src="/bower_components/jquery.scrollTo/jquery.scrollTo.js"></script>
+
+
         <script type="text/javascript" src="/bower_components/angular/angular.js"></script>
         <script type="text/javascript" src="/bower_components/angular-route/angular-route.js"></script>
         <!--<script type="text/javascript" src="/bower_components/angular-ui/angular-ui.js"></script>-->
@@ -22,8 +30,14 @@
         <script type="text/javascript" src="/bower_components/socket.io-client/socket.io.js"></script>
         <script type="text/javascript" src="/bower_components/angular-gravatar/src/md5.js"></script>
         <script type="text/javascript" src="/bower_components/angular-gravatar/build/angular-gravatar.js"></script>
+        <script type="text/javascript" src="/bower_components/angular-ui-router/release/angular-ui-router.js"></script>
+        <script type="text/javascript" src="/bower_components/ngAutocomplete/src/ngAutocomplete.js"></script>
+        <script type="text/javascript" src="/bower_components/angular-local-storage/angular-local-storage.js"></script>
+
+
 
         <!-- angular  [15:56:38] Daniele Polencic: http://jsfiddle.net/2L3G7/-->
         <script type="text/javascript" src="/javascript/lunchfoo.js"></script>
+
     </body>
 </html>

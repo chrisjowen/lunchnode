@@ -1,16 +1,14 @@
 class Auth
   constructor: (@restangular, @Facebook, @Session) ->
-    @authResponse = null
-    @Facebook.getLoginStatus (response) =>
-      @authResponse = response.authResponse if response.status == "connected"
 
   login: (userLoggedIn) =>
-    if @authResponse?
-      @_setUserFromFBResponse(@authResponse, userLoggedIn)
-    else
-      @Facebook.login (response) =>
-        @authResponse = response.authResponse
-        @_setUserFromFBResponse(authResponse, userLoggedIn)
+    @Facebook.getLoginStatus (response) =>
+      if response.status == "connected"
+        @_setUserFromFBResponse(response.authResponse, userLoggedIn)
+      else
+        @Facebook.login (response) =>
+          console.log(response)
+          @_setUserFromFBResponse(response.authResponse, userLoggedIn)
 
   isAuthenticated: () =>
     @Session.has("user")

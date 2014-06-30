@@ -1,5 +1,7 @@
 _ = require ('underscore')
-Lunch = require '../models/lunch'
+mongoose = require 'mongoose'
+User = mongoose.model('User')
+Lunch = mongoose.model('Lunch')
 
 
 class Controller

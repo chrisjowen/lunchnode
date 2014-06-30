@@ -1,4 +1,5 @@
-Category = require '../models/category'
+model = require('mongoose').model
+Category = model('Category')
 Controller = require '../lib/controller'
 
 class CategoriesController extends Controller
