@@ -23,6 +23,7 @@ if env != 'production'
   mongoose.connect 'mongodb://localhost/lunchy'
 else
   console.log('If you are running in production, you may want to modify the mongoose connect path')
+  mongoose.connect process.env.MONGOHQ_URL
 
 #### View initialization 
 # Add Connect Assets.

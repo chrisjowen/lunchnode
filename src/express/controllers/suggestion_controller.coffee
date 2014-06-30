@@ -4,7 +4,8 @@ class SuggestionController extends Controller
   @secure()
 
   initialize : ->
-    @before ['create','vote'] @setLunch
+    @before 'create', @setLunch
+    @before 'vote', @setLunch
 
   routes:
     create: (req, res) ->

@@ -1,6 +1,6 @@
 module.exports = (server) ->
     io = require('socket.io')(server);
-    server.listen(9000)
+    server.listen(process.env.RABBITMQ_BIGWIG_RX_URL )
     console.log "CONNECTING TO THE FLUFFY BUNNY"
 
     context = require("rabbit.js").createContext()
